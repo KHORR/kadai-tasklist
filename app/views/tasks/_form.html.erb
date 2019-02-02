@@ -3,16 +3,16 @@
     <% if task.errors.any? %>
       <div id="error_explanation">
         <ul>
-          <% task.errors.full_messages.each do |task| %>
-            <li><%= task %></li>
+          <% task.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
             <% end %>
         </ul>
       </div>
     <% end %>
     
     <%= t.label :status, 'ステータス' %>
-    <%= t.text_field :status %>
- 
+    <%= t.select :status, [ "新規", "着手", "未着手", "完了", "中止", "保留" ],:prompt => "選択してください" %>
+    
     <%= t.label :content, 'タスク' %>
     <%= t.text_field :content %>
     
